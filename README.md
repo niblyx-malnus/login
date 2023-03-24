@@ -37,7 +37,7 @@ There is a button to copy the relevant command for the specific bloc on the logi
 4. `|new-desk %login` to create a new desk called `%login`.
 5. `|mount %login` to access the `%login` desk from the unix command line.
 6. At the unix command line `rm -rf [ship-name]/login/*` to empty out the contents of the desk.
-7. `cp -r login/* [ship-name]/login` to copy the contents of this repo into your new desk.
+7. `cp -r login/desk/* [ship-name]/login` to copy the contents of this repo into your new desk.
 8. At the dojo command line `|commit %login`.
 9. Install with `|install our %login`.
 
