@@ -3,6 +3,7 @@
 :: import during development to force compilation
 ::
 /=  lc-  /mar/login/command
+/=  b-   /mar/blocs
 ::
 |%
 +$  state-0  [%0 =blocs]
@@ -205,6 +206,7 @@
   |=  =(pole knot)
   ^-  (unit (unit cage))
   ?+    pole  (on-peek:def pole)
+    [%x %blocs ~]  ``blocs+!>(blocs)
     [%x %all-paths ~]  ``noun+!>(~(tap in ~(key by blocs)))
     ::
       [%x %all-usernames ~]

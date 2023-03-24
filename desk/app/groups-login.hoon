@@ -72,7 +72,7 @@
           %group-action-0
         ~&  %reconciling-groups-login
         =^  cards  state  abet:reconcile-groups-login:hc
-        `this
+        [cards this]
         :: =/  =action:g  !<(action:g q.cage.sign)
         :: =/  =flag:g  p.action
         :: =/  =diff:g  q.q.action
@@ -121,8 +121,11 @@
       jug
     %-  ~(gas ju jug)
     :-  [(make-bloc-path flag ~) username]
-    %+  turn  ~(tap in sects)
-    |=(=sect:g [(make-bloc-path flag `sect) username])
+    %+  murn  ~(tap in sects)
+    |=  =sect:g
+    ?.  ((sane %tas) sect)  ~
+    %-  some
+    [(make-bloc-path flag `sect) username]
   ==
 ::
 ++  convert-fleets
@@ -162,7 +165,7 @@
   ?~  bloc-paths  core
   %=  $
     bloc-paths  t.bloc-paths
-    core        (add-bloc i.bloc-paths)
+    core        (add-bloc:core i.bloc-paths)
   ==
 ::
 ++  del-many-bloc
@@ -171,7 +174,7 @@
   ?~  bloc-paths  core
   %=  $
     bloc-paths  t.bloc-paths
-    core        (del-bloc i.bloc-paths)
+    core        (del-bloc:core i.bloc-paths)
   ==
 ::
 ++  mod-user-set
@@ -209,9 +212,8 @@
     %~  tap  in
     %.  ~(key by landscape-usernames)
     ~(dif in ~(key by fleet-usernames))
-  ~&  new-blocs
   =.  core
-    %-  add-many-bloc
+    %-  add-many-bloc:core
     %+  turn  new-blocs
     |=  =bloc-path
     :*  bloc-path
