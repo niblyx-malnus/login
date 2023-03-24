@@ -1,5 +1,5 @@
 # %login
-Maintain a database of username and passwords for websites you serve from your urbit.
+Maintain a database of usernames and passwords for websites you serve from your urbit.
 
 - Contains an agent which stores and allows basic CRUD operations for usernames, passwords, and cookie sessions
   associated with different "blocs."
