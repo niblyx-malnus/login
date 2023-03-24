@@ -42,4 +42,4 @@ There is a button to copy the relevant command for the specific bloc on the logi
 9. Install with `|install our %login`.
 
 # Future Work
-Lots to improve. Issues and PRs welcome.
+Lots to improve. Issues and PRs welcome. Please reach out with any comments, questions or suggestions!
