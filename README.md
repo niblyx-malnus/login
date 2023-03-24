@@ -1,6 +1,7 @@
 # %login
 Maintain a database of usernames and passwords for websites you serve from your urbit.
 
+- Uses logic lifted from `%eyre` to extend username/password login with cookies to users beyond yourself.
 - Contains an agent which stores and allows basic CRUD operations for usernames, passwords, and cookie sessions
   associated with different "blocs."
 - A "bloc" is a collection of usernames and passwords associated with something, like a landscape group or a realm space
