@@ -40,3 +40,6 @@ There is a button to copy the relevant command for the specific bloc on the logi
 7. `cp -r login/* [ship-name]/login` to copy the contents of this repo into your new desk.
 8. At the dojo command line `|commit %login`.
 9. Install with `|install our %login`.
+
+# Future Work
+Lots to improve. Issues and PRs welcome.
