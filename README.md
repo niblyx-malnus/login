@@ -17,7 +17,7 @@ Maintain a database of usernames and passwords for websites you serve from your 
 4. Use `(authenticated:lgn /bloc/path request)` to check if a request is made by an authenticated user.
 5. `authenticated:lgn` returns a `(unit user)`. If this is `~` there is no authenticated user.
 6. In the case of a `~`, you can use `(bloc-login-redirect:lgn eyre-id /bloc/path /redirect/destination)` to go to the login page.
-7. Read `/app/login-example.hoon` for an example. See this example live at https://niblyx-malnus.arvo.network/login/example (anyone in the UF Public group can get access. (WARNING: This is not working on firefox for some reason... Bug related to some combination of firefox and https?)
+7. Read `/app/login-example.hoon` for an example. See this example live at https://niblyx-malnus.arvo.network/login/example (anyone in the UF Public group can get access). (WARNING: This is not working on firefox for some reason... Bug related to some combination of firefox and https?)
 
 # Groups Bloc Paths
 The `%groups-login` agent will automatically sync groups to bloc-paths in the `%login` agent. A group bloc-path
