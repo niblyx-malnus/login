@@ -88,7 +88,7 @@
       ?>  =(src.bowl our.bowl)
       =/  =bloc  (~(got by blocs) bloc-path.cmd)
       =/  new-usernames=(list username)
-        ~(tap in (~(dif in ~(key by users.bloc)) usernames.cmd))
+        ~(tap in (~(dif in usernames.cmd) ~(key by users.bloc)))
       =.  users.bloc
         (~(uni by users.bloc) (generate-users:hc new-usernames))
       `this(blocs (~(put by blocs) bloc-path.cmd bloc))

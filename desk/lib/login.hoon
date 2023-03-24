@@ -31,8 +31,8 @@
 ++  session-pair-from-request
   |=  [=bloc-path =request:http]
   ^-  (unit [=username =sid])
-  ?~  cookie-key=(get-header:http 'cookie' header-list.request)  ~
-  ?~  cookies=(rush u.cookie-key cock:de-purl:html)  ~
+  ?~  cookie-header=(get-header:http 'cookie' header-list.request)  ~
+  ?~  cookies=(rush u.cookie-header cock:de-purl:html)  ~
   =/  cookie-key  (crip "login-{(spam bloc-path)}")
   ?~  cookie-val=(get-header:http cookie-key u.cookies)  ~
   (rush u.cookie-val parse-cookie-val)
