@@ -68,24 +68,24 @@
       :_(this [%pass /groups %agent [our.bowl %groups] %watch /groups]~)
       ::
         %fact
-      ~&  groups+p.cage.sign
       ?+    p.cage.sign  `this
           %group-action-0
-        =/  =action:g  !<(action:g q.cage.sign)
-        =/  =flag:g  p.action
-        =/  =diff:g  q.q.action
-        ?+    -.diff  `this
-            %fleet
-          =/  ships=(set ^ship)  p.diff
-          =^  cards  state  abet:reconcile-groups-login:hc
-          `this
-          :: ?-    -.q.diff
-          ::   %add        `this
-          ::   %del        `this
-          ::   %add-sects  `this
-          ::   %del-sects  `this
-          :: ==
-        ==
+        ~&  %reconciling-groups-login
+        =^  cards  state  abet:reconcile-groups-login:hc
+        `this
+        :: =/  =action:g  !<(action:g q.cage.sign)
+        :: =/  =flag:g  p.action
+        :: =/  =diff:g  q.q.action
+        :: =/  ships=(set ^ship)  p.diff
+        :: ?+    -.diff  `this
+        ::     %fleet
+        ::   ?-    -.q.diff
+        ::     %add        `this
+        ::     %del        `this
+        ::     %add-sects  `this
+        ::     %del-sects  `this
+        ::   ==
+        :: ==
       ==
     ==
   ==
@@ -209,6 +209,7 @@
     %~  tap  in
     %.  ~(key by landscape-usernames)
     ~(dif in ~(key by fleet-usernames))
+  ~&  new-blocs
   =.  core
     %-  add-many-bloc
     %+  turn  new-blocs
