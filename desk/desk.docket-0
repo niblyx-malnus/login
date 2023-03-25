@@ -1,9 +1,0 @@
-:~
-  title+'login'
-  info+'login for frens'
-  color+0x90.435d
-  version+[1 0 0]
-  website+'https://github.com/niblyx-malnus/login'
-  license+'MIT'
-  site+/login
-==
