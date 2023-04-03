@@ -133,32 +133,41 @@
       :_(this (four-hundred:hc eyre-id))
       ::
         %'GET'
-      :_  this
       =/  redirect  (get-header:http 'redirect' args)
-      (bloc-path-login:hc eyre-id bloc-path redirect %.n)
+      ?~  cookie-header=(get-header:http 'cookie' header-list.request.inbound-request)
+        :_(this (bloc-path-login:hc eyre-id bloc-path redirect %.n ~))
+      ?~  cookies=(rush u.cookie-header cock:de-purl:html)
+        :_(this (bloc-path-login:hc eyre-id bloc-path redirect %.n ~))
+      =/  cookie=(unit @t)  (some -.-.u.cookies)
+      :_(this (bloc-path-login:hc eyre-id bloc-path redirect %.n cookie))
       ::
         %'POST'
+      =/  in-cookie
+        ?~  cookie-header=(get-header:http 'cookie' header-list.request.inbound-request)  ~
+        ?~  cookies=(rush u.cookie-header cock:de-purl:html)  ~
+        `(unit @t)`(some -.-.u.cookies)
+      ::
       ?~  body.request.inbound-request
-        :_(this (bloc-path-login:hc eyre-id bloc-path ~ %.n))
+        :_(this (bloc-path-login:hc eyre-id bloc-path ~ %.n in-cookie))
       ::
       =/  parsed=(unit (list [key=@t value=@t]))
         (rush q.u.body.request.inbound-request yquy:de-purl:html)
       ?~  parsed
-        :_(this (bloc-path-login:hc eyre-id bloc-path ~ %.n))
+        :_(this (bloc-path-login:hc eyre-id bloc-path ~ %.n in-cookie))
       ::
       =/  redirect=(unit @t)  (get-header:http 'redirect' u.parsed)
       ?~  un=(get-header:http 'username' u.parsed)
-        :_(this (bloc-path-login:hc eyre-id bloc-path redirect %.n))
+        :_(this (bloc-path-login:hc eyre-id bloc-path redirect %.n in-cookie))
       ::
       =/  =username  (rash u.un parse-username:lgn)
       ?.  (~(has by users.u.ubloc) username)
-        :_(this (bloc-path-login:hc eyre-id bloc-path redirect %.n))
+        :_(this (bloc-path-login:hc eyre-id bloc-path redirect %.n in-cookie))
       ::
       ?~  password=(get-header:http 'password' u.parsed)
-        :_(this (bloc-path-login:hc eyre-id bloc-path redirect %.n))
+        :_(this (bloc-path-login:hc eyre-id bloc-path redirect %.n in-cookie))
       ::
       ?.  =(u.password password:(~(got by users.u.ubloc) username))
-        :_(this (bloc-path-login:hc eyre-id bloc-path redirect %.y))
+        :_(this (bloc-path-login:hc eyre-id bloc-path redirect %.y in-cookie))
       ::  mint a unique session cookie
       ::
       =/  sesh=(map @uv session)
@@ -290,14 +299,25 @@
   `(as-octt:mimes:html "404 - Bad Request")
 ::
 ++  bloc-path-login
-  |=  [=eyre-id =bloc-path redirect-url=(unit @t) failed=?]
+  |=  $:  =eyre-id
+          =bloc-path
+          redirect-url=(unit @t)
+          failed=?
+          cookie-key=(unit @t) :: clear this cookie
+      ==
   ^-  (list card)
   =/  data=octs  (login-page bloc-path redirect-url failed)
   =/  =response-header:http
     :-  400
-    :~  ['Content-Type' 'text/html']
-        ['Content-Length' (crip (format-ud-as-integer p.data))]
-    ==
+    %+  weld
+      :~  ['Content-Type' 'text/html']
+          ['Content-Length' (crip (format-ud-as-integer p.data))]
+      ==
+    ?~  cookie-key  ~
+    =/  max-age=tape  (format-ud-as-integer 0)
+    =/  cookie-line=@t
+      (crip "{(trip u.cookie-key)}=~; Path=/; Max-Age={max-age}")
+    ['Set-Cookie' cookie-line]~
   (give-simple-payload:app:server eyre-id response-header `data)
 ::
 ++  generate-password
