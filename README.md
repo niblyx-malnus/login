@@ -10,6 +10,8 @@ Maintain a database of usernames and passwords for websites you serve from your 
 - Usernames can either be `@p`s or combinations of alphanumeric characters and `~`, `-` and `_`.
 - Contains an agent which automatically creates blocs for all landscape groups you are a part of.
 
+I am currently using this to host some websites from my ship using [%sites](https://github.com/niblyx-malnus/sites), a project inspired by [%blog](https://github.com/tadad/blog).
+
 ## Use in other desks
 1. Copy `/lib/login.hoon` into your desk.
 2. Import this library into your agent with `/+  login`.
