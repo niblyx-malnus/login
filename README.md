@@ -45,3 +45,8 @@ There is a button to copy the relevant command for the specific bloc on the logi
 
 # Future Work
 Lots to improve. This is a first pass and still experimental. Issues and PRs welcome. Please reach out with any comments, questions or suggestions!
+
+## Other Similar Projects
+- [`%beacon`](https://github.com/sigilante/beacon) by `~lagrev-nocfep`
+- [`%beacon`](https://github.com/tinnus-napbus/beacon)/[`%sentinel`](https://github.com/tinnus-napbus/sentinel) by `~tinnus-napbus`
+- [`%phobos`](https://github.com/assemblycapital/phobos) by `~bacwyl-samweg`
