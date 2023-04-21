@@ -12,6 +12,11 @@ Maintain a database of usernames and passwords for websites you serve from your 
 
 I am currently using this to host some websites from my ship using [%sites](https://github.com/niblyx-malnus/sites), a project inspired by [%blog](https://github.com/tadad/blog).
 
+## Other Similar Projects
+- [`%beacon`](https://github.com/sigilante/beacon) by `~lagrev-nocfep`
+- [`%beacon`](https://github.com/tinnus-napbus/beacon)/[`%sentinel`](https://github.com/tinnus-napbus/sentinel) by `~tinnus-napbus`
+- [`%phobos`](https://github.com/assemblycapital/phobos) by `~bacwyl-samweg`
+
 ## Use in other desks
 1. Copy `/lib/login.hoon` into your desk.
 2. Import this library into your agent with `/+  login`.
@@ -45,8 +50,3 @@ There is a button to copy the relevant command for the specific bloc on the logi
 
 # Future Work
 Lots to improve. This is a first pass and still experimental. Issues and PRs welcome. Please reach out with any comments, questions or suggestions!
-
-## Other Similar Projects
-- [`%beacon`](https://github.com/sigilante/beacon) by `~lagrev-nocfep`
-- [`%beacon`](https://github.com/tinnus-napbus/beacon)/[`%sentinel`](https://github.com/tinnus-napbus/sentinel) by `~tinnus-napbus`
-- [`%phobos`](https://github.com/assemblycapital/phobos) by `~bacwyl-samweg`
