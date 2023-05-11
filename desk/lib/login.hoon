@@ -49,7 +49,7 @@
   ^-  (unit username)
   :: check that %login agent is running
   ::
-  ?.  .^(? %gu /[sour]/login/[snow])  ~
+  ?.  .^(? %gu /[sour]/login/[snow]/$)  ~
   ?~  sp=(session-pair-from-request bloc-path request)  ~
   .^  (unit username)
     %gx
