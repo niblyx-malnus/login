@@ -58,7 +58,9 @@
     ::
     =/  group=(pair ship term)  [~halbex-palheb %uf-public]
     =/  =bloc-path:lgn  (group-to-bloc-path:lgn group ~)
-    ?~  usr=(authenticated:lgn bloc-path request.inbound-request)
+    ::
+    =+  usr=(authenticated:lgn bloc-path request.inbound-request)
+    ?.  |(?=(^ usr) authenticated.inbound-request) :: always allow host ship
       :_(this (bloc-login-redirect:lgn eyre-id bloc-path (spat site)))
     ::
     :_  this
